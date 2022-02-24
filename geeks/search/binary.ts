@@ -23,7 +23,7 @@ function binarySearchRecursive(
   r: number = arr.length - 1
 ): number {
   if (l > r) return -1;
-  let mid = l + Math.floor((r - l) / 2);
+  let mid = l + Math.floor((r - l) / 2); // Math.floor((l+r)/2)
   l;
   r;
   mid;
