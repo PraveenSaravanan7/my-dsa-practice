@@ -1,4 +1,4 @@
-function isValid(s: string): boolean {
+export function isValid(s: string): boolean {
   const stack: string[] = [];
   const map: Record<string, number> = {
     "()": 1,
@@ -20,8 +20,7 @@ function isValid(s: string): boolean {
 }
 
 function isValid2(s: string): boolean {
-
-    // push only open brackets to the stack and if close brackets appear u know wat to do
+  // push only open brackets to the stack and if close brackets appear u know wat to do
 
   return true;
 }
