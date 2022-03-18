@@ -32,29 +32,51 @@
 
 //   return dummy.next;
 // }
+// function deleteDuplicates(head: ListNode | null): ListNode | null {
+//   if (!head) return null;
+
+//   let dummmy = new ListNode(-Infinity, head);
+//   let curr: ListNode | null = head;
+//   let prev = dummmy;
+//   let next = curr.next;
+
+//   while (curr) {
+//     if (curr && next && curr.val === next.val) {
+//       while (next && curr.val === next.val) {
+//         next = next.next;
+//       }
+
+//       prev.next = next;
+//       curr = next;
+//       next = next?.next || null;
+//     } else {
+//       prev = curr;
+//       curr = next;
+//       next = next?.next || null;
+//     }
+//   }
+
+//   return dummmy.next;
+// }
+
 function deleteDuplicates(head: ListNode | null): ListNode | null {
-  if (!head) return null;
+  const dummy = new ListNode(-Infinity, head);
+  let prev: ListNode | null = dummy;
+  let curr = head;
+  let next = curr?.next;
 
-  let dummmy = new ListNode(-Infinity, head);
-  let curr: ListNode | null = head;
-  let prev = dummmy;
-  let next = curr.next;
-
-  while (curr) {
-    if (curr && next && curr.val === next.val) {
-      while (next && curr.val === next.val) {
-        next = next.next;
-      }
-
-      prev.next = next;
+  while (next) {
+    if (curr?.val === next.val) {
+      while (curr?.val === next?.val) next = next?.next;
+      if (prev) prev.next = next;
       curr = next;
-      next = next?.next || null;
+      next = next?.next;
     } else {
       prev = curr;
       curr = next;
-      next = next?.next || null;
+      next = next.next;
     }
   }
 
-  return dummmy.next;
+  return dummy.next;
 }
